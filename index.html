@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Início</title>
+    <!--CSS:-->
+    <link rel="stylesheet" href="style-index.css">
+    <!--Fontes:-->
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima&family=Dancing+Script:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="bem-vindo">Bem vindo!</h1>
+
+    <div class="logo">
+        V3  
+    </div>
+
+    <div class="form">
+        <div class="pergunta">
+            <p id="pergunta">Digite seu primeiro nome</p>
+        </div>
+        
+        <input type="text" id="nome">
+        <div id="erro" class="escondido">
+            
+        </div>
+        <button type="submit" id="entrar">Entrar</button>
+
+        <div class="termo-de-uso">
+            <input type="checkbox" name="termo" id="termo"><label for="termo">Concordo com os termos de uso desse site <br>(LEIA ATENTAMENTE O <a href="termo.html">TERMO DE USO</a> ANTES DE ACESSAR O SITE)</label>
+        </div>
+    </div>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var nome = document.getElementById("nome")
+        var botao = document.getElementById("entrar")
+        var erro = document.getElementById("erro")
+        var termo = document.getElementById("termo")
+        var larguraTela = document.documentElement.clientWidth;
+        var alturaTela = document.documentElement.clientHeight;
+
+        console.log(larguraTela +","+alturaTela)
+
+        var nome_del = ''
+
+        //nomes autorização
+        var nomeAutorize1 = 'Ana'
+        var nomeAutorize12 = 'Ana '
+        var nomeAutorize2 = 'Ana Clarisse'
+        var nomeAutorize22 = 'Clarisse'
+
+        
+        botao.addEventListener('click', function(){
+            nome_del = nome.value
+
+            nome_del = nome_del.charAt(0).toUpperCase() + nome_del.slice(1).toLowerCase()
+
+            localStorage.setItem("nome_del", nome_del);
+
+            if(nome_del === nomeAutorize1 || nome_del === nomeAutorize12
+            || nome_del === nomeAutorize2 || nome_del === nomeAutorize22){
+               if(termo.checked){
+                                        
+                if (larguraTela > alturaTela) {
+                        erro.innerHTML = '<strong>⚠️</strong> Esse site fica melhor se for aberto no celular '
+                        erro.classList.add("erro");
+                        erro.classList.remove("escondido");
+                } else {
+                    window.location.href = "pergunta.html";
+                }
+
+                //<a href="pergunta.html">Continuar mesmo assim</a>
+
+               }else{
+                    erro.innerHTML = '<strong>⚠️Erro</strong>: Leia e aceite o termo de uso.É bem rápido e simples'
+                    erro.classList.add("erro");
+                    erro.classList.remove("escondido");
+                }
+            }else{
+                erro.innerHTML = '<strong>⚠️Erro</strong>: Digite seu primeiro nome coretamente'
+                erro.classList.add("erro");
+                erro.classList.remove("escondido");
+            }
+        })
+
+
+        
+    </script>
+</body>
+</html>
+
