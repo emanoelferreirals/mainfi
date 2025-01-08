@@ -91,7 +91,7 @@
         mensagem = "😞"
         erroParagrafo.innerHTML = mensagem
         resposta('Nao', mensagem,contNao, 'Triste, mas tudo bem!');
-    }*/else if(contNao == 10) {
+    }*/else if(contNao > 0) {
         resposta('Nao', contNao+'vezes',contNao,'');
     }else if(contNao == 20) {
         resposta('Nao', contNao+'vezes',contNao,'');

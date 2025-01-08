@@ -11,7 +11,7 @@
     <h1 class="bem-vindo">Bem vindo!</h1>
 
     <div class="logo">
-        C3  
+        V3  
     </div>
 
     <div class="form">
@@ -47,8 +47,12 @@
         //nomes autorização
         var nomeAutorize1 = 'Ana'
         var nomeAutorize12 = 'Ana '
-        var nomeAutorize2 = 'Ana Clarisse'
-        var nomeAutorize22 = 'Clarisse'
+        var nomeAutorize2 = 'Ana Clarice'
+        var nomeAutorize22 = 'Ana Clarice '
+        var nomeAutorize3 = 'Clarice'
+        var nomeAutorize32 = 'Clarice '
+
+
 
         
         botao.addEventListener('click', function(){
@@ -59,9 +63,9 @@
             localStorage.setItem("nome_del", nome_del);
 
             if(nome_del === nomeAutorize1 || nome_del === nomeAutorize12
-            || nome_del === nomeAutorize2 || nome_del != ''){
-               if(termo.checked){
-                                        
+            || nome_del === nomeAutorize2 || nome_del === nomeAutorize22
+            || nome_del === nomeAutorize3 || nome_del === nomeAutorize32){
+                                                        
                 if (larguraTela > alturaTela) {
                         erro.innerHTML = '<strong>⚠️</strong> Esse site fica melhor se for aberto no celular '
                         erro.classList.add("erro");
@@ -72,11 +76,7 @@
 
                 //<a href="pergunta.html">Continuar mesmo assim</a>
 
-               }else{
-                    erro.innerHTML = '<strong>⚠️Erro</strong>: Leia e aceite o termo de uso.É bem rápido e simples'
-                    erro.classList.add("erro");
-                    erro.classList.remove("escondido");
-                }
+               
             }else{
                 erro.innerHTML = '<strong>⚠️Erro</strong>: Digite seu primeiro nome coretamente'
                 erro.classList.add("erro");
