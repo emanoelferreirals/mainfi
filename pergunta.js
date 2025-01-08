@@ -117,26 +117,26 @@
 function entrou(){
     // Configuração e envio do EmailJS
     var data = {
-            service_id: 'service_ebjqeg7',
-            template_id: 'template_467etfg',
-            user_id: 'eOql_VTCF7ynnDE2K',
-            template_params: {
-                'username': 'Emanoel',
-                'name_dela': nome_dela
-                }
-            };
-            
-            $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
-                type: 'POST',
-                data: JSON.stringify(data),
-                contentType: 'application/json'
-            }).done(function() {
-                console.log("Entrou no site!");
-            }).fail(function(error) {
-                alert('Oops... ' + JSON.stringify(error));
-            });
-
-    /*------------------------------------------*/
+        service_id: 'service_ebjqeg7',
+        template_id: 'template_d7dqs3u',
+        user_id: 'eOql_VTCF7ynnDE2K',
+        template_params: {
+            'username': 'Emanoel',
+            'name_dela': nome_dela,
+            'resposta': 'Atenção. ',
+            'message': 'Ela entrou no Site',
+        }
+    };
+    
+    $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json'
+    }).done(function() {
+            console.log("Entrou no site!");
+    }).fail(function(error) {
+        console.log('Oops... ' + JSON.stringify(error));
+    });
 }
 
 function resposta(res, msg, n_msg,comp) {
